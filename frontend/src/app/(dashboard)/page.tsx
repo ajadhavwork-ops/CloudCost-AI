@@ -1,9 +1,15 @@
+import DashboardHeader from "@/features/dashboard/dashboard-header";
+import StatsGrid from "@/features/dashboard/stats-grid";
+import CostTrendChart from "@/features/dashboard/charts/cost-trend-chart";
+
 export default function DashboardPage() {
   return (
-    <div className="flex h-screen items-center justify-center">
-      <h1 className="text-4xl font-bold">
-        CloudCost AI 🚀
-      </h1>
+    <div className="space-y-8">
+      <DashboardHeader />
+
+      <StatsGrid />
+
+      <CostTrendChart />
     </div>
   );
 }
