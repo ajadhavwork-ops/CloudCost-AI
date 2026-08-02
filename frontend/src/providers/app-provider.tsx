@@ -3,6 +3,8 @@
 import { ThemeProvider } from "./theme-provider";
 import { QueryProvider } from "./query-provider";
 
+import { TooltipProvider } from "@/components/ui/tooltip";
+
 interface AppProviderProps {
   children: React.ReactNode;
 }
@@ -16,7 +18,9 @@ export function AppProvider({ children }: AppProviderProps) {
         enableSystem
         disableTransitionOnChange
       >
-        {children}
+        <TooltipProvider>
+          {children}
+        </TooltipProvider>
       </ThemeProvider>
     </QueryProvider>
   );
