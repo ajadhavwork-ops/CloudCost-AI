@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { serviceDistribution } from "./chart-config";
+import { serviceDistribution } from "@/mock/charts";
 
 export default function ServiceDistributionChart() {
   const option = {

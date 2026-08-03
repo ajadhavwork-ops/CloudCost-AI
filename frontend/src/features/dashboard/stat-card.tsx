@@ -23,7 +23,19 @@ export default function StatCard({
   icon: Icon,
 }: StatCardProps) {
   return (
-    <Card className="border-zinc-800 bg-zinc-950">
+    <Card
+className="
+border
+border-white/10
+bg-white/5
+backdrop-blur-xl
+shadow-lg
+transition-all
+duration-300
+hover:-translate-y-1
+hover:border-blue-500/40
+hover:shadow-blue-500/10
+">
       <CardContent className="p-6">
         <div className="flex items-center justify-between">
           <Icon className="h-6 w-6 text-blue-500" />

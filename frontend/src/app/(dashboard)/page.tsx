@@ -5,11 +5,11 @@ import CostTrendChart from "@/features/dashboard/charts/cost-trend-chart";
 import ServiceDistributionChart from "@/features/dashboard/charts/service-distribution-chart";
 
 import RecommendationPanel from "@/features/dashboard/recommendation-panel";
+import ActivityFeed from "@/features/dashboard/activity-feed";
 
 export default function DashboardPage() {
   return (
     <div className="space-y-8">
-      <DashboardHeader />
 
       <StatsGrid />
 
@@ -22,6 +22,11 @@ export default function DashboardPage() {
       </div>
 
       <RecommendationPanel />
+
+      <RecommendationPanel />
+
+<ActivityFeed />
+
     </div>
   );
 }

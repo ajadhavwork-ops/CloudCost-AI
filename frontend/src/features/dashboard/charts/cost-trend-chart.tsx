@@ -4,7 +4,7 @@ import ReactECharts from "echarts-for-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { costTrendData } from "./chart-config";
+import { costTrendData } from "@/mock/charts";
 
 export default function CostTrendChart() {
   const option = {

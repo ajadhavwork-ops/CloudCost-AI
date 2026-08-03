@@ -1,7 +1,7 @@
 "use client";
 
 import StatCard from "./stat-card";
-import { dashboardStats } from "./mock-data";
+import { dashboardStats } from "@/mock/dashboard";
 
 export default function StatsGrid() {
   return (

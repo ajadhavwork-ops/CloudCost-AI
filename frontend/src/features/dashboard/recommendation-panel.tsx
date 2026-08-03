@@ -14,7 +14,8 @@ import { Badge } from "@/components/ui/badge";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-import { recommendations } from "./recommendations-data";
+import { recommendations } from "@/mock/recommendations";
+
 
 export default function RecommendationPanel() {
   return (
