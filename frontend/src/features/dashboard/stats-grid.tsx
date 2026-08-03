@@ -5,7 +5,7 @@ import { dashboardStats } from "@/mock/dashboard";
 
 export default function StatsGrid() {
   return (
-    <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+    <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
       {dashboardStats.map((stat) => (
         <StatCard
           key={stat.title}
