@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: cloudcost-ai-backend
+
+  profiles:
+    active: dev
+
+server:
+  port: 8080

@@ -1,0 +1,13 @@
+spring:
+  devtools:
+    restart:
+      enabled: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cloudcost_ai
+    username: postgres
+    password: postgres
+
+logging:
+  level:
+    root: INFO
