@@ -5,15 +5,17 @@ import { ChevronLeft, ChevronRight, Cloud, PanelLeftClose } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { navigation, sidebarFooter } from "@/constants/navigation";
+import { navigation } from "@/constants/navigation";
 import { cn } from "@/lib/utils";
+import { useCloudAccountStore } from "@/store/cloud-account-store";
+import { ConnectionStatusBadge } from "@/features/cloud-accounts/connection-status";
 
 import NavItem from "./nav-item";
 
 interface SidebarProps { collapsed?: boolean; mobile?: boolean; open?: boolean; onCollapse?: () => void; onNavigate?: () => void; }
 
 export default function Sidebar({ collapsed = false, mobile = false, open = false, onCollapse, onNavigate }: SidebarProps) {
-  const ConnectionIcon = sidebarFooter.icon;
+  const { account, connectionStatus } = useCloudAccountStore();
   return (
     <aside aria-label="Primary navigation" className={cn(
       "z-50 flex h-screen flex-col border-r border-sidebar-border bg-sidebar transition-[width,transform] duration-200 motion-reduce:transition-none",
@@ -39,7 +41,7 @@ export default function Sidebar({ collapsed = false, mobile = false, open = fals
       </nav>
 
       <div className={cn("border-t border-sidebar-border p-3", collapsed && "p-2")}>
-        {collapsed ? <Tooltip><TooltipTrigger asChild><div className="flex h-9 items-center justify-center rounded-lg bg-success/10 text-success"><ConnectionIcon className="size-4" /></div></TooltipTrigger><TooltipContent side="right">{sidebarFooter.label}</TooltipContent></Tooltip> : <div className="rounded-lg border border-sidebar-border bg-surface-muted p-3"><div className="flex items-center gap-2 text-xs font-medium text-success"><span className="size-1.5 rounded-full bg-success" /><span>{sidebarFooter.label}</span></div><p className="mt-1 text-[11px] text-muted-foreground">{sidebarFooter.detail}</p></div>}
+        {collapsed ? <Tooltip><TooltipTrigger asChild><div className="flex h-9 items-center justify-center rounded-lg bg-surface-muted"><ConnectionStatusBadge compact iconOnly status={connectionStatus} /></div></TooltipTrigger><TooltipContent side="right">{account ? "AWS Connected" : "AWS Not Connected"}</TooltipContent></Tooltip> : <div className="rounded-lg border border-sidebar-border bg-surface-muted p-3"><ConnectionStatusBadge compact status={connectionStatus} /><p className="mt-1 text-[11px] text-muted-foreground">{account ? "Last synced: Just now" : "Connect AWS to start analyzing costs"}</p></div>}
         {!collapsed && <div className="mt-2 flex items-center gap-2 px-2 text-xs text-muted-foreground"><PanelLeftClose className="size-3.5" />Workspace navigation</div>}
       </div>
     </aside>

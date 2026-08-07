@@ -31,8 +31,8 @@ export const navigation = [
       { title: "Budgets & Alerts", href: "/budgets", icon: WalletCards },
     ],
   },
-  { title: "Reporting", items: [{ title: "Reports", href: "/reports", icon: FileBarChart }] },
   { title: "Integrations", items: [{ title: "Cloud Accounts", href: "/integrations", icon: CloudCog }] },
+  { title: "Reporting", items: [{ title: "Reports", href: "/reports", icon: FileBarChart }] },
   {
     title: "Other",
     items: [
