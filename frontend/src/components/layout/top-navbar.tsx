@@ -4,34 +4,24 @@ import { Bell, Search } from "lucide-react";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./theme-toggle";
 
 export default function TopNavbar() {
   return (
-    <header className="
-sticky
-top-0
-z-50
-flex
-h-16
-items-center
-justify-between
-border-b
-border-white/5
-bg-black/20
-px-8
-backdrop-blur-2xl
-">
+    <header className="sticky top-0 z-50 flex h-[72px] items-center justify-between border-b border-border bg-background/90 px-4 backdrop-blur supports-[backdrop-filter]:bg-background/75 sm:px-6 lg:px-8">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">
+        <h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
           Dashboard
         </h1>
 
-        <p className="text-sm text-zinc-400">
+        <p className="text-sm text-muted-foreground">
           Monitor your cloud infrastructure.
         </p>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 sm:gap-3">
+
+        <ThemeToggle />
 
         <Button
           variant="ghost"

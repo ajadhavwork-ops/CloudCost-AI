@@ -1,15 +1,22 @@
 "use client";
 
 import ReactECharts from "echarts-for-react";
+import { useTheme } from "next-themes";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { costTrendData } from "@/mock/charts";
+import { getChartTheme } from "@/lib/chart-theme";
 
 export default function CostTrendChart() {
+  const { resolvedTheme } = useTheme();
+  const colors = typeof document === "undefined" ? null : getChartTheme();
   const option = {
     tooltip: {
       trigger: "axis",
+      backgroundColor: colors?.surface,
+      borderColor: colors?.grid,
+      textStyle: { color: colors?.tooltip },
     },
 
     grid: {
@@ -24,10 +31,14 @@ export default function CostTrendChart() {
       type: "category",
       data: costTrendData.months,
       boundaryGap: false,
+      axisLine: { lineStyle: { color: colors?.grid } },
+      axisLabel: { color: colors?.axis },
     },
 
     yAxis: {
       type: "value",
+      axisLabel: { color: colors?.axis },
+      splitLine: { lineStyle: { color: colors?.grid } },
     },
 
     series: [
@@ -35,19 +46,22 @@ export default function CostTrendChart() {
         data: costTrendData.values,
         type: "line",
         smooth: true,
-        areaStyle: {},
+        lineStyle: { color: colors?.primary, width: 2.5 },
+        itemStyle: { color: colors?.primary },
+        areaStyle: { color: colors?.primary, opacity: 0.14 },
       },
     ],
   };
 
   return (
-    <Card className="border-zinc-800 bg-zinc-950">
+    <Card>
       <CardHeader>
         <CardTitle>Cloud Cost Trend</CardTitle>
       </CardHeader>
 
       <CardContent>
   <ReactECharts
+    key={resolvedTheme}
     option={option}
     style={{
       height: "320px",

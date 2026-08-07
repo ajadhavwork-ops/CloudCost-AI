@@ -15,7 +15,7 @@ import {
 
 export default function ActivityFeed() {
   return (
-    <Card className="border border-white/10 bg-white/5 backdrop-blur-xl">
+    <Card>
       <CardHeader>
         <CardTitle>Recent Cloud Activity</CardTitle>
       </CardHeader>
@@ -29,12 +29,12 @@ export default function ActivityFeed() {
             <div>
               <p className="font-medium">{activity.service}</p>
 
-              <p className="text-sm text-zinc-400">
+              <p className="text-sm text-muted-foreground">
                 {activity.message}
               </p>
             </div>
 
-            <div className="flex items-center gap-2 text-sm text-zinc-500">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Clock3 className="h-4 w-4" />
               {activity.time}
             </div>

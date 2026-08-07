@@ -10,22 +10,22 @@ import NavItem from "./nav-item";
 export default function Sidebar() {
   return (
     <aside
-      className="hidden lg:flex lg:flex-col border-r border-zinc-800 bg-[#09090B]"
+      className="hidden border-r border-sidebar-border bg-sidebar lg:flex lg:flex-col"
       style={{ width: `${SIDEBAR_WIDTH}px` }}
     >
       {/* Brand */}
-      <div className="border-b border-zinc-800 px-6 py-6">
+      <div className="border-b border-sidebar-border px-6 py-6">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600">
-            <Cloud className="h-6 w-6 text-white" />
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sidebar-primary">
+            <Cloud className="h-6 w-6 text-sidebar-primary-foreground" />
           </div>
 
           <div>
-            <h1 className="text-lg font-bold text-white">
+            <h1 className="text-lg font-semibold tracking-tight text-sidebar-foreground">
               CloudCost AI
             </h1>
 
-            <p className="text-xs text-zinc-400">
+            <p className="text-xs text-muted-foreground">
               Intelligent FinOps
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function Sidebar() {
       <div className="flex-1 overflow-y-auto px-4 py-6">
         {navigation.map((section) => (
           <div key={section.title} className="mb-8">
-            <p className="mb-3 px-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+            <p className="mb-3 px-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               {section.title}
             </p>
 

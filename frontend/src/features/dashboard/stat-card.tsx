@@ -24,36 +24,26 @@ export default function StatCard({
 }: StatCardProps) {
   return (
     <Card
-className="
-border
-border-white/10
-bg-white/5
-backdrop-blur-xl
-shadow-lg
-transition-all
-duration-300
-hover:-translate-y-1
-hover:border-blue-500/40
-hover:shadow-blue-500/10
-">
+      className="transition-colors hover:border-primary/40"
+    >
       <CardContent className="p-6">
         <div className="flex items-center justify-between">
-          <Icon className="h-6 w-6 text-blue-500" />
+          <Icon className="h-5 w-5 text-primary" />
 
-          <span className="text-xs text-green-400">
+          <span className="text-xs font-medium text-success">
             {change}
           </span>
         </div>
 
-        <h3 className="mt-6 text-sm text-zinc-400">
+        <h3 className="mt-6 text-sm font-medium text-muted-foreground">
           {title}
         </h3>
 
-        <p className="mt-2 text-3xl font-bold text-white">
+        <p className="mt-2 text-3xl font-semibold tracking-tight text-foreground">
           {value}
         </p>
 
-        <p className="mt-2 text-xs text-zinc-500">
+        <p className="mt-2 text-xs text-muted-foreground">
           {description}
         </p>
       </CardContent>

@@ -19,10 +19,10 @@ import { recommendations } from "@/mock/recommendations";
 
 export default function RecommendationPanel() {
   return (
-    <Card className="border-zinc-800 bg-zinc-950">
+    <Card>
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="flex items-center gap-2">
-          <Lightbulb className="h-5 w-5 text-yellow-400" />
+          <Lightbulb className="h-5 w-5 text-warning" />
           AI Recommendations
         </CardTitle>
 
@@ -42,7 +42,7 @@ export default function RecommendationPanel() {
                 transition={{
                   delay: index * 0.1,
                 }}
-                className="rounded-xl border border-zinc-800 bg-zinc-900 p-4 hover:border-blue-500 transition-all"
+                className="rounded-lg border border-border bg-surface-muted p-4 transition-colors hover:border-primary/50"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="font-medium">
@@ -53,13 +53,13 @@ export default function RecommendationPanel() {
                 </div>
 
                 <div className="mt-3 flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-emerald-400">
+                  <div className="flex items-center gap-2 text-success">
                     <TrendingDown className="h-4 w-4" />
 
                     <span>{item.saving}</span>
                   </div>
 
-                  <ArrowRight className="h-4 w-4 text-zinc-500" />
+                  <ArrowRight className="h-4 w-4 text-muted-foreground" />
                 </div>
               </motion.div>
             ))}

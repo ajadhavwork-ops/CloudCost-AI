@@ -17,6 +17,7 @@ export function AppProvider({ children }: AppProviderProps) {
         defaultTheme="system"
         enableSystem
         disableTransitionOnChange
+        storageKey="cloudcost-theme"
       >
         <TooltipProvider>
           {children}

@@ -1,6 +1,7 @@
 "use client";
 
 import ReactECharts from "echarts-for-react";
+import { useTheme } from "next-themes";
 
 import {
   Card,
@@ -10,17 +11,23 @@ import {
 } from "@/components/ui/card";
 
 import { serviceDistribution } from "@/mock/charts";
+import { getChartTheme } from "@/lib/chart-theme";
 
 export default function ServiceDistributionChart() {
+  const { resolvedTheme } = useTheme();
+  const colors = typeof document === "undefined" ? null : getChartTheme();
   const option = {
     tooltip: {
       trigger: "item",
+      backgroundColor: colors?.surface,
+      borderColor: colors?.grid,
+      textStyle: { color: colors?.tooltip },
     },
 
     legend: {
       bottom: 0,
       textStyle: {
-        color: "#d4d4d8",
+        color: colors?.axis,
       },
     },
 
@@ -31,9 +38,10 @@ export default function ServiceDistributionChart() {
         avoidLabelOverlap: false,
         itemStyle: {
           borderRadius: 8,
-          borderColor: "#09090b",
+          borderColor: colors?.surface,
           borderWidth: 2,
         },
+        color: colors ? [colors.primary, colors.secondary, colors.positive, colors.neutral, colors.negative] : undefined,
         label: {
           show: false,
         },
@@ -50,13 +58,14 @@ export default function ServiceDistributionChart() {
   };
 
   return (
-    <Card className="border-zinc-800 bg-zinc-950">
+    <Card>
       <CardHeader>
         <CardTitle>Service Distribution</CardTitle>
       </CardHeader>
 
       <CardContent>
         <ReactECharts
+          key={resolvedTheme}
           option={option}
           style={{
             height: "320px",
