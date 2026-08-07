@@ -1,67 +1,45 @@
 import {
+  BarChart3,
+  BellRing,
+  Bot,
+  CircleHelp,
+  CloudCog,
+  FileBarChart,
+  Gauge,
   LayoutDashboard,
-  DollarSign,
-  Server,
-  BrainCircuit,
-  Bell,
-  Wallet,
   Settings,
+  Server,
+  Sparkles,
+  WalletCards,
 } from "lucide-react";
 
 export const navigation = [
+  { title: "Main", items: [{ title: "Overview", href: "/", icon: LayoutDashboard }] },
   {
     title: "Analytics",
     items: [
-      {
-        title: "Dashboard",
-        href: "/",
-        icon: LayoutDashboard,
-      },
-      {
-        title: "Cost Explorer",
-        href: "/billing",
-        icon: DollarSign,
-      },
+      { title: "Cost Analytics", href: "/billing", icon: BarChart3 },
+      { title: "Resources", href: "/resources", icon: Server },
+      { title: "Forecast", href: "/forecast", icon: Gauge },
     ],
   },
   {
-    title: "Cloud",
+    title: "Optimization",
     items: [
-      {
-        title: "Resources",
-        href: "/resources",
-        icon: Server,
-      },
-      {
-        title: "AI Insights",
-        href: "/recommendations",
-        icon: BrainCircuit,
-      },
+      { title: "AI Insights", href: "/insights", icon: Bot },
+      { title: "Recommendations", href: "/recommendations", icon: Sparkles },
+      { title: "Budgets & Alerts", href: "/budgets", icon: WalletCards },
     ],
   },
+  { title: "Reporting", items: [{ title: "Reports", href: "/reports", icon: FileBarChart }] },
+  { title: "Integrations", items: [{ title: "Cloud Accounts", href: "/integrations", icon: CloudCog }] },
   {
-    title: "Management",
+    title: "Other",
     items: [
-      {
-        title: "Budgets",
-        href: "/budgets",
-        icon: Wallet,
-      },
-      {
-        title: "Alerts",
-        href: "/alerts",
-        icon: Bell,
-      },
+      { title: "Settings", href: "/settings", icon: Settings },
+      { title: "Help & Documentation", href: "/help", icon: CircleHelp },
     ],
   },
-  {
-    title: "General",
-    items: [
-      {
-        title: "Settings",
-        href: "/settings",
-        icon: Settings,
-      },
-    ],
-  },
-];
+] as const;
+
+export const sidebarFooter = { label: "AWS Connected", detail: "Last synced 4 minutes ago", icon: BellRing };
