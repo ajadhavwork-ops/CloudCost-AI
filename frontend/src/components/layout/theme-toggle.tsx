@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import { Laptop, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -13,7 +14,18 @@ const modes = [
 ] as const;
 
 export function ThemeToggle() {
+  const [mounted, setMounted] = React.useState(false);
   const { theme, setTheme } = useTheme();
+
+  React.useEffect(() => {
+    const frame = window.requestAnimationFrame(() => setMounted(true));
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  if (!mounted) {
+    return <div aria-hidden="true" className="hidden h-9 w-[98px] sm:flex" />;
+  }
+
   return (
     <div aria-label="Theme preference" className="hidden items-center rounded-lg border border-border bg-surface-muted p-0.5 sm:flex">
       {modes.map(({ value, label, icon: Icon }) => (
